@@ -1,4 +1,4 @@
-package com.gnb_android
+package com.gnb_android.home.ui.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
