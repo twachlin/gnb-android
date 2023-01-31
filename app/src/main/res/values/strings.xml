@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">gnb-android</string>
+
+    <!-- Home screen -->
+    <string name="home_header_text">Goliath National Bank</string>
+    <string name="home_screen_content_subtitle">Select an item:</string>
+
+    <!-- Transaction detail item -->
+    <string name="transaction_detail_item_title">Item code:</string>
+    <string name="transaction_detail_item_amount">$%1$s</string>
 </resources>
