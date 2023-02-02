@@ -10,9 +10,22 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.gnb_android.commons.data.datasource.currency.CurrencyRemoteDataSource
+import com.gnb_android.commons.data.repository.currency.CurrencyRepository
+import com.gnb_android.home.data.datasource.transactions.TransactionsRemoteDataSource
+import com.gnb_android.home.data.repository.transactions.TransactionsRepository
+import com.gnb_android.home.ui.viewmodel.HomeViewModel
 import com.gnb_android.ui.theme.GnbandroidTheme
 
 class MainActivity : ComponentActivity() {
+
+    val viewModel by lazy {
+        HomeViewModel(
+            CurrencyRepository(CurrencyRemoteDataSource()),
+            TransactionsRepository(TransactionsRemoteDataSource())
+        )
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -22,22 +35,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    HomeScreen(viewModel = viewModel)
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    GnbandroidTheme {
-        Greeting("Android")
     }
 }

@@ -23,6 +23,6 @@ class TransactionsRepository(private val dataSource: ITransactionsDataSource) {
         return transactionsBySku.map {
             TransactionsBySku(it.key, it.value.map { transactionApiModel ->
                 transactionApiModel.convertToTransaction() })
-        }
+        }.sortedBy { it.sku }
     }
 }
