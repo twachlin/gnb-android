@@ -9,7 +9,7 @@ import com.gnb_android.home.data.repository.transactions.model.TransactionsBySku
 
 class TransactionsRepository(private val dataSource: ITransactionsDataSource) {
 
-    fun getTransactions(): DataState<List<TransactionsBySku>> {
+    suspend fun getTransactions(): DataState<List<TransactionsBySku>> {
         return dataSource.getTransactions().mapToDataState {
             it.convertToTransactionsGroupedLists()
         }

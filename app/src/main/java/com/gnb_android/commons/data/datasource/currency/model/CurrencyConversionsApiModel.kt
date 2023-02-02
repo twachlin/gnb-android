@@ -1,12 +1,15 @@
 package com.gnb_android.commons.data.datasource.currency.model
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 import java.math.BigDecimal
 
+@JsonClass(generateAdapter = true)
 data class CurrencyConversionsApiModel(
     val conversion: List<CurrencyConversionItemApiModel>
 )
 
+@JsonClass(generateAdapter = true)
 data class CurrencyConversionItemApiModel(
     val from: CurrencyTypeApiModel,
     val to: CurrencyTypeApiModel,
@@ -14,22 +17,22 @@ data class CurrencyConversionItemApiModel(
 )
 
 enum class CurrencyTypeApiModel {
-    @SerializedName("EUR")
+    @Json(name = "EUR")
     EUR,
-    @SerializedName("USD")
+    @Json(name = "USD")
     USD,
-    @SerializedName("CAD")
+    @Json(name = "CAD")
     CAD,
-    @SerializedName("GBP")
+    @Json(name = "GBP")
     GBP,
-    @SerializedName("JPY")
+    @Json(name = "JPY")
     JPY,
-    @SerializedName("AUD")
+    @Json(name = "AUD")
     AUD,
-    @SerializedName("SEK")
+    @Json(name = "SEK")
     SEK,
-    @SerializedName("RUB")
+    @Json(name = "RUB")
     RUB,
-    @SerializedName("INR")
+    @Json(name = "INR")
     INR
 }

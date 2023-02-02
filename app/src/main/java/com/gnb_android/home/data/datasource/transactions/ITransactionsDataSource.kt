@@ -5,5 +5,5 @@ import com.gnb_android.home.data.datasource.transactions.model.TransactionApiMod
 
 interface ITransactionsDataSource {
 
-    fun getTransactions(): ApiResponse<List<TransactionApiModel>>
+    suspend fun getTransactions(): ApiResponse<List<TransactionApiModel>>
 }
