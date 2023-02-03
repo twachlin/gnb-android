@@ -9,8 +9,6 @@ class MoshiAdapters {
             MoshiConverterFactory.create(
                 Moshi.Builder()
                     .add(BigDecimalAdapter())
-                    .add(TransactionApiModelListAdapter())
-                    .add(TransactionApiModelAdapter())
                     .build()
             )
         }
