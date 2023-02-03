@@ -5,12 +5,7 @@ import com.squareup.moshi.JsonClass
 import java.math.BigDecimal
 
 @JsonClass(generateAdapter = true)
-data class CurrencyConversionsApiModel(
-    val conversion: List<CurrencyConversionItemApiModel>
-)
-
-@JsonClass(generateAdapter = true)
-data class CurrencyConversionItemApiModel(
+data class CurrencyConversionApiModel(
     val from: CurrencyTypeApiModel,
     val to: CurrencyTypeApiModel,
     val rate: BigDecimal

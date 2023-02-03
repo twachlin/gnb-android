@@ -2,11 +2,7 @@ package com.gnb_android.commons.data.repository.currency.model
 
 import java.math.BigDecimal
 
-data class CurrencyConversions(
-    val conversion: List<CurrencyConversionItem>
-)
-
-data class CurrencyConversionItem(
+data class CurrencyConversion(
     val from: CurrencyType,
     val to: CurrencyType,
     val rate: BigDecimal
