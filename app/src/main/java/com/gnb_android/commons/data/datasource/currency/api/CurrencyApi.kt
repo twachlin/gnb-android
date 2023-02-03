@@ -19,6 +19,6 @@ interface CurrencyApi {
      * INR -> EUR
      */
     @GET("rates")
-    fun getCurrencyRates(): Response<List<CurrencyConversionApiModel>>
+    suspend fun getCurrencyRates(): Response<List<CurrencyConversionApiModel>>
 
 }

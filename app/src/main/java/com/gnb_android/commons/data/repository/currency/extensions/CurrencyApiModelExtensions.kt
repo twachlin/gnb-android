@@ -5,12 +5,6 @@ import com.gnb_android.commons.data.datasource.currency.model.CurrencyTypeApiMod
 import com.gnb_android.commons.data.repository.currency.model.CurrencyConversion
 import com.gnb_android.commons.data.repository.currency.model.CurrencyType
 
-fun List<CurrencyConversionApiModel>.convertToCurrencyConversionList(): List<CurrencyConversion> {
-    return this.map {
-        it.convertToCurrencyConversion()
-    }
-}
-
 fun CurrencyConversionApiModel.convertToCurrencyConversion(): CurrencyConversion =
     CurrencyConversion(
         from = from.convertToCurrencyType(),
