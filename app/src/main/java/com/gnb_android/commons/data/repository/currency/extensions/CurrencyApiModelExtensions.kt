@@ -1,19 +1,18 @@
 package com.gnb_android.commons.data.repository.currency.extensions
 
-import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversionItemApiModel
-import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversionsApiModel
+import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversionApiModel
 import com.gnb_android.commons.data.datasource.currency.model.CurrencyTypeApiModel
-import com.gnb_android.commons.data.repository.currency.model.CurrencyConversionItem
-import com.gnb_android.commons.data.repository.currency.model.CurrencyConversions
+import com.gnb_android.commons.data.repository.currency.model.CurrencyConversion
 import com.gnb_android.commons.data.repository.currency.model.CurrencyType
 
-fun CurrencyConversionsApiModel.convertToCurrencyConversions(): CurrencyConversions =
-    CurrencyConversions(
-        this.conversion.map { it.convertToCurrencyConversionItem() }
-    )
+fun List<CurrencyConversionApiModel>.convertToCurrencyConversionList(): List<CurrencyConversion> {
+    return this.map {
+        it.convertToCurrencyConversion()
+    }
+}
 
-fun CurrencyConversionItemApiModel.convertToCurrencyConversionItem(): CurrencyConversionItem =
-    CurrencyConversionItem(
+fun CurrencyConversionApiModel.convertToCurrencyConversion(): CurrencyConversion =
+    CurrencyConversion(
         from = from.convertToCurrencyType(),
         to = to.convertToCurrencyType(),
         rate = rate

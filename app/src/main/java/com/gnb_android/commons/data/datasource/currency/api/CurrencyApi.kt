@@ -1,6 +1,6 @@
 package com.gnb_android.commons.data.datasource.currency.api
 
-import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversionsApiModel
+import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversionApiModel
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -19,6 +19,6 @@ interface CurrencyApi {
      * INR -> EUR
      */
     @GET("rates")
-    fun getCurrencyRates(): Response<CurrencyConversionsApiModel>
+    fun getCurrencyRates(): Response<List<CurrencyConversionApiModel>>
 
 }
