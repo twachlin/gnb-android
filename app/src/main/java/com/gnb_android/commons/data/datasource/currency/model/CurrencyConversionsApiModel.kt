@@ -6,8 +6,11 @@ import java.math.BigDecimal
 
 @JsonClass(generateAdapter = true)
 data class CurrencyConversionApiModel(
+    @Json(name = "from")
     val from: CurrencyTypeApiModel,
+    @Json(name = "to")
     val to: CurrencyTypeApiModel,
+    @Json(name = "rate")
     val rate: BigDecimal
 )
 

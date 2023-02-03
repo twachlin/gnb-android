@@ -19,7 +19,7 @@ import com.gnb_android.ui.theme.GnbandroidTheme
 
 class MainActivity : ComponentActivity() {
 
-    val viewModel by lazy {
+    private val viewModel by lazy {
         HomeViewModel(
             CurrencyRepository(CurrencyRemoteDataSource()),
             TransactionsRepository(TransactionsRemoteDataSource())

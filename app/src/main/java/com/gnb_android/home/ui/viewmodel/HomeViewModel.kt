@@ -17,17 +17,7 @@ class HomeViewModel(
     private val transactionsRepository: TransactionsRepository
 ) : ViewModel() {
 
-    val currencyObservable: MutableLiveData<UiState<List<CurrencyConversion>>> = MutableLiveData()
     val transactionsObservable: MutableLiveData<UiState<List<TransactionsBySku>>> = MutableLiveData()
-
-    fun getCurrencyRates() {
-        viewModelScope.launch {
-            currencyObservable.postValue(Loading())
-            currencyObservable.postValue(
-                currencyRepository.getCurrencyRates().mapToUiState()
-            )
-        }
-    }
 
     fun getTransactions() {
         viewModelScope.launch {

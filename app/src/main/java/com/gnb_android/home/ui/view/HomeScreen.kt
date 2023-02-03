@@ -13,6 +13,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,6 +30,7 @@ import com.gnb_android.home.data.repository.transactions.TransactionsRepository
 import com.gnb_android.home.data.repository.transactions.model.TransactionsBySku
 import com.gnb_android.home.ui.view.components.TransactionTitleItem
 import com.gnb_android.home.ui.viewmodel.HomeViewModel
+import com.gnb_android.transactiondetails.ui.TransactionDetailsActivity
 
 @Composable
 fun HomeScreen(
@@ -36,6 +38,7 @@ fun HomeScreen(
 ) {
 
     val transactionsState = viewModel.transactionsObservable.observeAsState()
+    val context = LocalContext.current
 
     Scaffold(
         topBar = {
@@ -65,7 +68,13 @@ fun HomeScreen(
                                 itemsIndexed(transactionsBySku) { index, item ->
                                     TransactionTitleItem(
                                         text = item.sku,
-                                        onClick = { /*TODO*/ },
+                                        onClick = {
+                                            context.startActivity(
+                                                TransactionDetailsActivity.getIntent(
+                                                    context, item.transactionDetail
+                                                )
+                                            )
+                                        },
                                         isLastItem = (index == transactionsBySku.size - 1)
                                     )
                                 }

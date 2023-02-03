@@ -14,16 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gnbandroid"
         tools:targetApi="31">
+
         <activity
             android:name=".home.ui.view.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Gnbandroid">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".transactiondetails.ui.TransactionDetailsActivity"
+            android:theme="@style/Theme.Gnbandroid" />
     </application>
 
 </manifest>

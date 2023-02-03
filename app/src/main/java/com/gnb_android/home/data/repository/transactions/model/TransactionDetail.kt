@@ -11,4 +11,4 @@ data class TransactionDetail (
     val sku: String,
     val amount: BigDecimal,
     val currency: CurrencyType
-)
+): java.io.Serializable
