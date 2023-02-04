@@ -22,7 +22,7 @@ import com.gnb_android.commons.ui.viewmodel.states.Empty
 import com.gnb_android.commons.ui.viewmodel.states.Loading
 import com.gnb_android.commons.ui.viewmodel.states.Success
 import com.gnb_android.home.data.repository.transactions.model.TransactionDetail
-import com.gnb_android.home.ui.view.components.TransactionDetailItem
+import com.gnb_android.transactiondetails.ui.view.components.TransactionDetailItem
 import com.gnb_android.transactiondetails.ui.view.components.TransactionsTotalAmount
 import com.gnb_android.transactiondetails.ui.viewmodel.TransactionDetailsViewModel
 
