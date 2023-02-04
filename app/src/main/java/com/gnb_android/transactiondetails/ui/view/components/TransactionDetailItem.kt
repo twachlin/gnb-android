@@ -1,4 +1,4 @@
-package com.gnb_android.home.ui.view.components
+package com.gnb_android.transactiondetails.ui.view.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

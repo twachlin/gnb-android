@@ -56,11 +56,11 @@ class TransactionDetailsViewModel(private val repository: CurrencyRepository) : 
     ): BigDecimal {
         val directConversion = conversions.find { it.from == from && it.to == EUR }
         if (directConversion != null) {
-            return currencyConversion(amount, directConversion.rate)
+            return convertCurrency(amount, directConversion.rate)
         }
         for (conversion in conversions) {
             if (conversion.from == from) {
-                val intermediateAmount = currencyConversion(amount, conversion.rate)
+                val intermediateAmount = convertCurrency(amount, conversion.rate)
                 val intermediateResult =
                     convertToEUR(intermediateAmount, conversion.to, conversions)
                 if (intermediateResult != intermediateAmount) {
@@ -75,7 +75,7 @@ class TransactionDetailsViewModel(private val repository: CurrencyRepository) : 
      * Convert to the specified currency passing amount to convert and rate of conversion
      * Return a BigDecimal with scale 2 and rounding mode HALF_EVEN (bankers rounding mode)
      */
-    private fun currencyConversion(amount: BigDecimal, rate: BigDecimal): BigDecimal {
+    private fun convertCurrency(amount: BigDecimal, rate: BigDecimal): BigDecimal {
         return (amount * rate).setScale(2, HALF_EVEN)
     }
 }
