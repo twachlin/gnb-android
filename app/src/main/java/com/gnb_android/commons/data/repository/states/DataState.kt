@@ -8,4 +8,5 @@ data class SuccessDataState<Data>(val body: Data) : DataState<Data>()
 
 object BusinessErrorDataState : DataState<Nothing>()
 
+object ErrorDataState : DataState<Nothing>()
 

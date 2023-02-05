@@ -10,3 +10,5 @@ data class SuccessApiResponse<out Data>(val body: Data) : ApiResponse<Data>()
 object EmptyApiResponse : ApiResponse<Nothing>()
 
 object BusinessErrorApiResponse : ApiResponse<Nothing>()
+
+object NetworkErrorApiResponse : ApiResponse<Nothing>()

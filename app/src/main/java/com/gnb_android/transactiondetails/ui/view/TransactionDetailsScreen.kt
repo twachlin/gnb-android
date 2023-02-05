@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import com.gnb_android.commons.ui.view.components.header.GnbHeader
 import com.gnb_android.commons.ui.viewmodel.states.BusinessError
 import com.gnb_android.commons.ui.viewmodel.states.Empty
 import com.gnb_android.commons.ui.viewmodel.states.Loading
+import com.gnb_android.commons.ui.viewmodel.states.NetworkError
 import com.gnb_android.commons.ui.viewmodel.states.Success
 import com.gnb_android.home.data.repository.transactions.model.TransactionDetail
 import com.gnb_android.transactiondetails.ui.view.components.TransactionDetailItem
@@ -60,6 +62,15 @@ fun TransactionDetailsScreen(
                     modifier = Modifier.padding(16.dp),
                     text = stringResource(id = R.string.transaction_details_screen_currency_error)
                 )
+            }
+            is NetworkError -> {
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = "We can't calculate total amount"
+                )
+                Button(onClick = { viewModel.getCurrencyRates() }) {
+                    Text(text = "Try again")
+                }
             }
             null -> {
                 // Do nothing

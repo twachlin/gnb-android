@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -24,6 +25,7 @@ import com.gnb_android.commons.ui.view.components.header.GnbHeader
 import com.gnb_android.commons.ui.viewmodel.states.BusinessError
 import com.gnb_android.commons.ui.viewmodel.states.Empty
 import com.gnb_android.commons.ui.viewmodel.states.Loading
+import com.gnb_android.commons.ui.viewmodel.states.NetworkError
 import com.gnb_android.commons.ui.viewmodel.states.Success
 import com.gnb_android.home.data.datasource.transactions.TransactionsRemoteDataSource
 import com.gnb_android.home.data.repository.transactions.TransactionsRepository
@@ -80,8 +82,18 @@ fun HomeScreen(
                                 }
                             }
                         }
-                        BusinessError -> {
+                        is BusinessError -> {
                             Text(text = "Business error content")
+                        }
+                        is NetworkError -> {
+                            Text(
+                                modifier = Modifier.padding(16.dp),
+                                text = "No internet connection available"
+                            )
+                            Button(onClick = { viewModel.getTransactions() }) {
+                                Text(text = "Try again")
+                            }
+
                         }
                         null -> {
                             // Do nothing

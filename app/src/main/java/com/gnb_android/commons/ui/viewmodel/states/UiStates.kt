@@ -23,3 +23,8 @@ class Success<out Data>(val body: Data) : SuccessUiState<Data>()
  * Business Error State
  */
 object BusinessError : UiState<Nothing>()
+
+/**
+ * Network error state
+ */
+object NetworkError : UiState<Nothing>()
