@@ -21,7 +21,7 @@ class TransactionDetailsViewModel(private val repository: CurrencyRepository) : 
 
     fun getCurrencyRates() {
         viewModelScope.launch {
-            currencyObservable.postValue(Loading())
+            currencyObservable.postValue(Loading)
             currencyObservable.postValue(
                 repository.getCurrencyRates().mapToUiState()
             )

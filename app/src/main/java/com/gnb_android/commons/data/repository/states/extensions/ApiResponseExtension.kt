@@ -7,7 +7,9 @@ import com.gnb_android.commons.data.repository.states.SuccessDataState
 import com.gnb_android.commons.data.datasource.response.ApiResponse
 import com.gnb_android.commons.data.datasource.response.BusinessErrorApiResponse
 import com.gnb_android.commons.data.datasource.response.EmptyApiResponse
+import com.gnb_android.commons.data.datasource.response.NetworkErrorApiResponse
 import com.gnb_android.commons.data.datasource.response.SuccessApiResponse
+import com.gnb_android.commons.data.repository.states.ErrorDataState
 
 fun <DataIn, DataOut> ApiResponse<DataIn>.mapToDataState(convertOnSuccess: ((DataIn) -> DataOut)): DataState<DataOut> {
     return when (this) {
@@ -19,6 +21,9 @@ fun <DataIn, DataOut> ApiResponse<DataIn>.mapToDataState(convertOnSuccess: ((Dat
         }
         is BusinessErrorApiResponse -> {
             BusinessErrorDataState
+        }
+        is NetworkErrorApiResponse -> {
+            ErrorDataState
         }
     }
 }
@@ -33,6 +38,9 @@ fun <Data> ApiResponse<Data>.mapToDataState(): DataState<Data> {
         }
         is BusinessErrorApiResponse -> {
             BusinessErrorDataState
+        }
+        is NetworkErrorApiResponse -> {
+            ErrorDataState
         }
     }
 }

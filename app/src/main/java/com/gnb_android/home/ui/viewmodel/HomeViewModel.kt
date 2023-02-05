@@ -21,7 +21,7 @@ class HomeViewModel(
 
     fun getTransactions() {
         viewModelScope.launch {
-            transactionsObservable.postValue(Loading())
+            transactionsObservable.postValue(Loading)
             transactionsObservable.postValue(
                 transactionsRepository.getTransactions().mapToUiState()
             )

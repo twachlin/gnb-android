@@ -8,7 +8,7 @@ sealed class UiState<out Data>
 /**
  * Loading
  */
-class Loading(val isFinished: Boolean = false) : UiState<Nothing>()
+object Loading : UiState<Nothing>()
 
 /**
  * Success State
@@ -23,3 +23,8 @@ class Success<out Data>(val body: Data) : SuccessUiState<Data>()
  * Business Error State
  */
 object BusinessError : UiState<Nothing>()
+
+/**
+ * Network error state
+ */
+object NetworkError : UiState<Nothing>()
