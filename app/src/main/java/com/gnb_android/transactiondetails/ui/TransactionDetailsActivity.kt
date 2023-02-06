@@ -16,7 +16,7 @@ import com.gnb_android.transactiondetails.ui.view.TransactionDetailsScreen
 import com.gnb_android.transactiondetails.ui.viewmodel.TransactionDetailsViewModel
 import com.gnb_android.ui.theme.GnbandroidTheme
 
-class TransactionDetailsActivity() : ComponentActivity() {
+class TransactionDetailsActivity : ComponentActivity() {
 
     companion object {
         private const val TRANSACTIONS = "TRANSACTIONS"

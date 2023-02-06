@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface CurrencyApi {
 
     /**
-     * This method return a list with currency rates.
+     * This method return a list with currency rates for currency conversion.
      * EUR -> USD
      * USD -> EUR
      * GBP -> EUR

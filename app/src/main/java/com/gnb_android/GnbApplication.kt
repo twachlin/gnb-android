@@ -14,6 +14,10 @@ class GnbApplication: Application() {
         initModules()
     }
 
+    /**
+     * This method has the responsibility of initialize app modules when starting application
+     * For example, here we can add firebase analytics, app logs, etc.
+     */
     private fun initModules() {
         dataModule = DataModule(BASE_URL)
     }

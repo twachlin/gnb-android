@@ -6,7 +6,7 @@ import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversion
 import com.gnb_android.commons.data.datasource.response.ApiResponse
 import com.gnb_android.core.connectivity.RetrofitFactory
 
-class CurrencyRemoteDataSource() : ICurrencyDataSource, BaseRemoteDataSource() {
+class CurrencyRemoteDataSource : ICurrencyDataSource, BaseRemoteDataSource() {
 
     private val api: CurrencyApi by lazy {
         RetrofitFactory.getRetrofitService(CurrencyApi::class.java)
