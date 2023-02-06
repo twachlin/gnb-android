@@ -1,6 +1,5 @@
 package com.gnb_android.core.connectivity
 
-import com.gnb_android.BuildConfig.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Converter
 import retrofit2.Retrofit

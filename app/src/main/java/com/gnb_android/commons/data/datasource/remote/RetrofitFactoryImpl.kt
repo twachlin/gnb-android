@@ -5,15 +5,10 @@ import com.gnb_android.core.connectivity.OkHttpFactory
 import com.gnb_android.core.connectivity.RetrofitFactory
 import okhttp3.OkHttpClient
 
-class RetrofitFactoryImpl(
-    private val baseUrl: String,
-) : RetrofitFactory() {
+class RetrofitFactoryImpl(private val baseUrl: String) : RetrofitFactory() {
 
     private val okHttpFactory: OkHttpFactory = OkHttpFactoryImpl()
     private val okHttpClient: OkHttpClient = okHttpFactory.makeOkHttpClient()
 
-    override fun init(
-    ) {
-        initRetrofit(baseUrl, MoshiAdapters.converterFactory, okHttpClient)
-    }
+    override fun init() { initRetrofit(baseUrl, MoshiAdapters.converterFactory, okHttpClient) }
 }

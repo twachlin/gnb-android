@@ -6,7 +6,7 @@ import com.gnb_android.core.connectivity.RetrofitFactory
 import com.gnb_android.home.data.datasource.transactions.api.TransactionsApi
 import com.gnb_android.home.data.datasource.transactions.model.TransactionApiModel
 
-class TransactionsRemoteDataSource() : ITransactionsDataSource, BaseRemoteDataSource() {
+class TransactionsRemoteDataSource : ITransactionsDataSource, BaseRemoteDataSource() {
 
     private val api: TransactionsApi by lazy {
         RetrofitFactory.getRetrofitService(TransactionsApi::class.java)

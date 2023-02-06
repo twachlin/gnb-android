@@ -27,20 +27,3 @@ fun <DataIn, DataOut> ApiResponse<DataIn>.mapToDataState(convertOnSuccess: ((Dat
         }
     }
 }
-
-fun <Data> ApiResponse<Data>.mapToDataState(): DataState<Data> {
-    return when (this) {
-        is EmptyApiResponse -> {
-            EmptyDataState
-        }
-        is SuccessApiResponse -> {
-            SuccessDataState(this.body)
-        }
-        is BusinessErrorApiResponse -> {
-            BusinessErrorDataState
-        }
-        is NetworkErrorApiResponse -> {
-            ErrorDataState
-        }
-    }
-}
