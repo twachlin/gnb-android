@@ -12,6 +12,7 @@
     <!-- Transaction details screen -->
     <string name="transaction_details_screen_header_text">Transactions</string>
     <string name="transaction_details_screen_currency_error">For some reason we could not load currency rates, please try again.</string>
+    <string name="transaction_details_screen_total_amount_error">We can not calculate total amount</string>
 
     <!-- Transaction detail item -->
     <string name="transaction_detail_item_title">Item code:</string>

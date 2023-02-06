@@ -66,7 +66,7 @@ fun TransactionDetailsScreen(
             is NetworkError -> {
                 Text(
                     modifier = Modifier.padding(16.dp),
-                    text = "We can't calculate total amount"
+                    text = stringResource(id = R.string.transaction_details_screen_total_amount_error)
                 )
                 Button(onClick = { viewModel.getCurrencyRates() }) {
                     Text(text = stringResource(id = R.string.try_again))

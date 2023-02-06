@@ -46,7 +46,7 @@ class TransactionDetailsViewModel(private val repository: CurrencyRepository) : 
                 }
             }
         }
-        return totalAmount.setScale(2, HALF_EVEN)
+        return totalAmount
     }
 
     fun convertToEUR(
