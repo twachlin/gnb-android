@@ -49,7 +49,7 @@ class TransactionDetailsViewModel(private val repository: CurrencyRepository) : 
         return totalAmount.setScale(2, HALF_EVEN)
     }
 
-    private fun convertToEUR(
+    fun convertToEUR(
         amount: BigDecimal,
         from: CurrencyType,
         conversions: List<CurrencyConversion>
