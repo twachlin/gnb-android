@@ -2,7 +2,6 @@ package com.gnb_android.transactiondetails.ui.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -52,8 +51,8 @@ fun TransactionDetailsScreen(
 
                 TransactionsTotalAmount(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(horizontal = 22.dp, vertical = 8.dp)
+                        .align(Alignment.End),
                     amount = totalAmount
                 )
             }

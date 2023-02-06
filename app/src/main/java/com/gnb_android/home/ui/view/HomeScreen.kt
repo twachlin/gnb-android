@@ -16,6 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontStyle.Companion.Italic
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gnb_android.R
@@ -52,7 +54,11 @@ fun HomeScreen(
                     .padding(padding)
                     .padding(horizontal = 16.dp)
             ) {
-                Text(text = stringResource(id = R.string.home_screen_content_subtitle))
+                Text(
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    text = stringResource(id = R.string.home_screen_content_subtitle),
+                    fontStyle = Italic
+                )
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -67,8 +73,9 @@ fun HomeScreen(
                         is Success -> {
                             val transactionsBySku: List<TransactionsBySku> = state.body
                             LazyColumn {
-                                itemsIndexed(transactionsBySku) { index, item ->
+                                itemsIndexed(transactionsBySku) { _, item ->
                                     TransactionTitleItem(
+                                        modifier = Modifier.padding(vertical = 4.dp),
                                         text = item.sku,
                                         onClick = {
                                             context.startActivity(
@@ -76,8 +83,7 @@ fun HomeScreen(
                                                     context, item.transactionDetail
                                                 )
                                             )
-                                        },
-                                        isLastItem = (index == transactionsBySku.size - 1)
+                                        }
                                     )
                                 }
                             }

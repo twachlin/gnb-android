@@ -5,37 +5,46 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.gnb_android.commons.ui.view.components.divider.GnbDivider
 
 @Composable
 fun TransactionTitleItem(
     text: String,
     onClick: () -> Unit,
-    isLastItem: Boolean = false
+    modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = Modifier
+    Card(
+        modifier = modifier
             .fillMaxWidth()
             .clickable { onClick() },
-        horizontalAlignment = Alignment.CenterHorizontally
+        shape = RoundedCornerShape(16.dp),
+        backgroundColor = Color.LightGray
     ) {
-        Box(
-            modifier = Modifier.height(64.dp),
-            contentAlignment = Alignment.Center
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                modifier = Modifier,
-                text = text
-            )
-        }
-        if (!isLastItem) {
-            GnbDivider()
+            Box(
+                modifier = Modifier.height(64.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    modifier = Modifier,
+                    text = text,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
 }
