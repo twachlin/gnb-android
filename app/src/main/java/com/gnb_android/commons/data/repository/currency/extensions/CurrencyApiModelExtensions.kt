@@ -4,12 +4,13 @@ import com.gnb_android.commons.data.datasource.currency.model.CurrencyConversion
 import com.gnb_android.commons.data.datasource.currency.model.CurrencyTypeApiModel
 import com.gnb_android.commons.data.repository.currency.model.CurrencyConversion
 import com.gnb_android.commons.data.repository.currency.model.CurrencyType
+import java.math.RoundingMode.HALF_EVEN
 
 fun CurrencyConversionApiModel.convertToCurrencyConversion(): CurrencyConversion =
     CurrencyConversion(
         from = from.convertToCurrencyType(),
         to = to.convertToCurrencyType(),
-        rate = rate
+        rate = rate.setScale(4, HALF_EVEN)
     )
 
 fun CurrencyTypeApiModel.convertToCurrencyType(): CurrencyType {
